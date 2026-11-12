@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Skate Pose</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="app" data-mobile="list" hidden>
+    <header class="toolbar">
+      <div class="toolbar-left">
+        <button id="back" class="icon-btn only-mobile" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <span class="app-title">Skate Pose</span>
+      </div>
+
+      <div class="segmented" id="view-switch" role="tablist" hidden>
+        <button role="tab" data-view="raw">Original</button>
+        <button role="tab" data-view="processed">Esqueleto</button>
+      </div>
+
+      <div class="toolbar-right">
+        <span id="user-email" class="muted hide-mobile"></span>
+        <button id="logout" class="btn-plain">Sair</button>
+        <button id="upload-btn" class="btn-primary">Enviar vídeo</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Vídeos">
+        <div class="sidebar-header">
+          <h2>Vídeos</h2>
+          <span id="count" class="muted"></span>
+        </div>
+        <ul id="list" class="list" role="listbox" tabindex="0"></ul>
+        <div id="empty" class="empty" hidden>
+          <p>Nenhum vídeo ainda</p>
+          <p class="muted">Arraste um arquivo para cá ou use “Enviar vídeo”.</p>
+        </div>
+      </aside>
+      <main class="detail" id="detail"></main>
+    </div>
+  </div>
+
+  <dialog id="auth-sheet" class="sheet">
+    <form id="auth-form" novalidate>
+      <div class="sheet-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>
+      </div>
+      <h1 id="auth-title">Entrar</h1>
+      <p class="muted" id="auth-sub">Use sua conta para enviar e ver seus vídeos.</p>
+      <input id="auth-email" type="email" placeholder="E-mail" autocomplete="username" required>
+      <input id="auth-password" type="password" placeholder="Senha (mín. 8 caracteres)" autocomplete="current-password" required minlength="8">
+      <p id="auth-error" class="error" role="alert" hidden></p>
+      <button id="auth-submit" class="btn-primary wide" type="submit">Entrar</button>
+      <button id="auth-toggle" class="btn-plain wide" type="button">Criar conta</button>
+    </form>
+  </dialog>
+
+  <input type="file" id="file-input" accept="video/*" multiple hidden>
+  <div id="drop" class="drop" hidden><span>Solte para enviar</span></div>
+  <div id="toasts" aria-live="polite"></div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

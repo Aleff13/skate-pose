@@ -1,0 +1,24 @@
+{
+  "name": "skate-pose-architecture-video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Animação low poly da arquitetura do Skate Pose (Remotion)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Architecture out/architecture.mp4",
+    "still": "remotion still src/index.ts Architecture out/still.png",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.543",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.543"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  },
+  "license": "MIT"
+}
